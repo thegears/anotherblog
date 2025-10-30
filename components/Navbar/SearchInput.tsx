@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { searchBlogs } from "@/app/actions";
 import { useState } from "react";
-import { Post } from "@/app/generated/prisma/client";
+import { Post } from "@prisma/client";
 import Image from "next/image";
 
 export default function SearchInput({
