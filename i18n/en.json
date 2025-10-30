@@ -1,0 +1,11 @@
+{
+  "Navbar": {
+    "home": "Anasayfa",
+    "blog": "Blog",
+    "search": "Search"
+  },
+  "Homepage": {
+    "title": "Bloguma Hoş Geldiniz",
+    "description": "Burada teknoloji ve geliştirme hakkında yazılar bulabilirsiniz."
+  }
+}
