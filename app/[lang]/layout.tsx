@@ -1,19 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import NavBar from "@/components/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,9 +17,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const { lang } = await params;
 
+  const cookieStore = await cookies();
+  const theme = cookieStore.get("theme")?.value || "dark";
+
   return (
     <html lang={lang}>
-      <body>
+      <body data-theme={theme}>
         <NextIntlClientProvider messages={messages}>
           <NavBar />
           {children}

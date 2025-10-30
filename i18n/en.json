@@ -1,8 +1,11 @@
 {
   "Navbar": {
-    "home": "Anasayfa",
+    "home": "Home",
     "blog": "Blog",
-    "search": "Search"
+    "search": "Search",
+    "title": "anotherblog.",
+    "theme": "Theme",
+    "lang": "Lang"
   },
   "Homepage": {
     "title": "Bloguma Hoş Geldiniz",

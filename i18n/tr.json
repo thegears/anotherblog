@@ -2,7 +2,10 @@
   "Navbar": {
     "home": "Anasayfa",
     "blog": "Blog",
-    "search": "Ara"
+    "search": "Ara",
+    "title": "anotherblog.",
+    "theme": "Tema",
+    "lang": "Dil"
   },
   "Homepage": {
     "title": "Bloguma Hoş Geldiniz",
