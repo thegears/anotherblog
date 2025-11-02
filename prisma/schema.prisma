@@ -20,7 +20,7 @@ model Post {
   title     String
   content   String
   language  String @default("tr")   
-  slug      String?
+  slug      String 
   createdAt DateTime @default(now())
 
   @@unique([slug, language])

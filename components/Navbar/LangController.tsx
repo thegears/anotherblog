@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 
 export default function LangController({
@@ -9,6 +9,12 @@ export default function LangController({
   const t = useTranslations("Navbar");
   const pathname = usePathname();
   const router = useRouter();
+  const currentLang = useLocale();
+
+  function changeLang(lang: string) {
+    if (lang == currentLang) return;
+    router.replace(pathname, { locale: lang });
+  }
 
   return (
     <div
@@ -51,7 +57,7 @@ export default function LangController({
       >
         <li>
           <input
-            onClick={() => router.replace(pathname, { locale: "tr" })}
+            onClick={() => changeLang("tr")}
             type="radio"
             name="theme-dropdown"
             className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
@@ -66,7 +72,7 @@ export default function LangController({
             className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
             aria-label="🇬🇧 EN"
             value="🇬🇧 EN"
-            onClick={() => router.replace(pathname, { locale: "en" })}
+            onClick={() => changeLang("en")}
           />
         </li>
       </ul>

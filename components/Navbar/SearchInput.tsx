@@ -15,6 +15,11 @@ export default function SearchInput({
   async function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const query = event.target.value;
 
+    if (query.length < 3) {
+      setPosts([]);
+      return;
+    }
+
     setPosts(await searchBlogs(query));
   }
 
@@ -27,7 +32,9 @@ export default function SearchInput({
       <div className="relative w-full">
         <input
           onBlur={() => setPosts([])}
-          onFocus={handleChange as any}
+          onFocus={
+            handleChange as (event: React.FocusEvent<HTMLInputElement>) => void
+          }
           type="text"
           className="input input-bordered w-full text-md md:text-lg lg:text-lg text-center border-primary text-base-content  p-6 bg-base-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder={t("search")}
@@ -35,13 +42,13 @@ export default function SearchInput({
         />
 
         <div
-          className={`absolute z-20 mt-1 bg-base-200 w-full shadow-lg rounded-md max-h-60 overflow-y-auto p-1 md:p-2 lg:p-3 ${
+          className={`absolute z-20 mt-1 bg-base-200 w-full shadow-lg rounded-md max-h-60 md:max-h-90 lg:max-h-120 overflow-y-auto p-1 md:p-2 lg:p-3 ${
             posts.length == 0 && "hidden"
           } `}
         >
           {posts.map((post) => (
             <div
-              className="p-1 md:p-2 lg:p-3 border-b border-primary text-sm md:text-base lg:text-lg bg-base-200  cursor-pointer text-base-content hover:bg-primary hover:text-primary-content rounded-md  block flex justify-between items-center gap-4"
+              className="p-1 md:p-2 lg:p-3 border-b border-primary text-sm md:text-base lg:text-lg bg-base-200  cursor-pointer text-base-content hover:bg-primary hover:text-primary-content rounded-md  block  justify-between items-center gap-4"
               key={post.id}
             >
               <Image

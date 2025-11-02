@@ -7,8 +7,6 @@
     "theme": "Tema",
     "lang": "Dil"
   },
-  "Homepage": {
-    "title": "Bloguma Hoş Geldiniz",
-    "description": "Burada teknoloji ve geliştirme hakkında yazılar bulabilirsiniz."
-  }
+  "title": "anotherblog.",
+  "description": "Başka bir blog gibi ama bu benim."
 }
